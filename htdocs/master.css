@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  font-family: sans-serif;
+  padding: 0;
+}
+
+h1 {
+  color: white;
+  font-size: 4em;
+}
+
+h2 {
+  color: white;
+  font-size: 2em;
+}
+
+p {
+  color: black;
+  font-size: 1.5em;
+}
+
+.IndexContent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+  "header header header header login"
+  "intro intro intro intro intro"
+  "aside main main main main"
+  "footer footer footer footer footer";
+}
+
+.IndexContent div {
+
+}
+
+.header {
+  grid-area: header;
+  height: 12.5vh;
+  padding: 2.25vh 0 0 2.25vh;
+  background: grey;
+}
+
+.intro {
+
+  grid-area: intro;
+  background: darkgrey;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 0 0 0.5em 0;
+  border-color: grey;
+}
+
+.main {
+  grid-area: main;
+  height: 100vh;
+  padding: 1em;
+}
+
+.aside {
+  grid-area: aside;
+  background: lightgrey;
+  padding: 1em;
+}
+
+.footer {
+  grid-area: footer;
+  height: 12.5vh;
+  background: grey;
+}
+
+.login {
+  grid-area: login;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh;
+}
