@@ -7,6 +7,7 @@
 h1 {
   color: white;
   font-size: 4em;
+  text-shadow: 2px 2px 8px grey;
 }
 
 h2 {
@@ -74,8 +75,67 @@ p {
 
 .login {
   grid-area: login;
+  display: grid;
+  height: 12.5vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  padding: 1vh;
+}
+
+.login div {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2vh;
 }
+
+.logForm {
+
+}
+
+#loginForm {
+  width: 100%;
+  border: none;
+}
+
+#formfields {
+  width: 100%;
+  text-decoration: none;
+}
+
+input[type=text]:focus {
+    transition: 0.5s;
+    border: 2px solid grey;
+}
+
+
+#submitbutton {
+  height: 25%;
+  width: 100%;
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 0.5vh 0.5vh;
+  text-align: center;
+  font-size: 0.75em;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#submitbutton:hover {opacity: 1}
+
+.linkRegister {
+  grid-row: 4/5;
+}
+
+#noAcc {
+  text-decoration: none;
+  color: black;
+  opacity: 0.7;
+  transition: 0.3s;
+
+}
+
+#noAcc:hover {opacity: 1}

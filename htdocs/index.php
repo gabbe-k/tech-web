@@ -6,6 +6,7 @@
 		<meta charset="utf-8">
 		<title>ServerPojkarna</title>
 		<link rel="stylesheet" href="master.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	</head>
 
@@ -30,13 +31,21 @@
 			</div>
 
 			<div class = "login">
-				<form id="loginForm" action="sqlogin.php" method="post">
-					<input type="text" name="username" value="Username">
-					<input type="text" name="password" value="Password">
-					<input type="submit">
-				</form>
-				<a href="register.php">No account?</a>
+
+				<div class="logForm">
+					<form id="loginForm" action="sqlogin.php" method="post">
+						<input id="formfields" type="text" name="username" value="Username">
+						<input id="formfields" type="text" name="password" value="Password">
+						<input id="submitbutton" type="submit" value="Submit">
+					</form>
+				</div>
+
+				<div class="linkRegister">
+					<a id="noAcc" href="register.php">No account?</a>
+				</div>
+
 			</div>
+
 		</div>
 
 		<div class="footer">
