@@ -8,6 +8,7 @@ h1 {
   color: white;
   font-size: 4em;
   text-shadow: 2px 2px 8px grey;
+  -webkit-transition: 0.2s;
 }
 
 h2 {
@@ -15,9 +16,14 @@ h2 {
   font-size: 2em;
 }
 
+h3 {
+  color: white;
+  font-size: 1em;
+}
+
 p {
   color: black;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .IndexContent {
@@ -43,23 +49,20 @@ p {
 }
 
 .intro {
-
   grid-area: intro;
   background: darkgrey;
   height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-style: solid;
-  border-width: 0 0 0 0;
-  transition: 0.3s;
-  border-color: grey;
+  padding: 5vh;
+  -webkit-transition: 2s;
 }
 
-.into:hover {
-  border-style: solid;
-    border-width: 0 0 0.5em 0;
-    background: black;
+.intro:hover h1 {
+  text-shadow: 2px 4px 4px grey;
+}
+
+.intro:hover {
+  border-left: 0;
+  border-right: 0;
 }
 
 .main {

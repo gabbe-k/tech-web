@@ -20,6 +20,9 @@
 
 			<div class="intro">
 				<h1>Hello</h1>
+				<h3>Put link to interactive checklist here</h3>
+				<br>
+				<h3>This div can change content without changing page and let you put in tags</h3>
 			</div>
 
 			<div class="main">
