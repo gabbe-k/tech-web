@@ -11,7 +11,7 @@
   }
 
   //funkar ej
-  function valid_email($email) { 
+  function valid_email($email) {
     if (preg_match('^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$', $email)) {
       return true;
     }
@@ -19,5 +19,13 @@
       return false;
     }
   }
-  
+
+  function SafeStrip($string)
+  {
+
+      $string = strip_tags($string);
+      return $string;
+
+  }
+
 ?>

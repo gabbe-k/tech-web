@@ -1,5 +1,5 @@
 <?php
-    require_once('connect.php');
+    require_once('sqconnect.php');
 
     function Register($username, $email, $password)
     {
@@ -31,17 +31,5 @@
 
         return true;
     }
-
-    function SafeStrip($string)
-    {
-
-        $string = strip_tags($string);
-        //$string = mysqli_real_escape_string($string, );
-        return $string;
-
-    }
-
-
-
 
 ?>

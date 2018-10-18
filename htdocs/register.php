@@ -12,7 +12,7 @@
 
 	<body>
 
-		<form class="" action="sqregister.php" method="POST">
+		<form class="" action="./sql/sqregister.php" method="POST">
 
 			<input type="text" name="email" value="Email">
 			<input type="text" name="username" value="Username">
