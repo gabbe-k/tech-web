@@ -29,6 +29,8 @@
             throw new Exception('Could not register.');
         }
 
+        Disconnect($conn);
+
         return true;
     }
 

@@ -7,9 +7,7 @@
 
   $conn = Connect();
 
-  session_start();
-
-  if(filled_out($_POST) && $_POST['username'] != "Username" && $_POST['password'] != "Password")
+  if(validForm($_POST))
   {
 
     $bigBool = false;
@@ -18,31 +16,42 @@
 
     $hashedpw = $conn->query("SELECT password FROM accounts WHERE username='$user'");
 
-    $dbPass = mysqli_fetch_all($hashedpw)[0][0];
-
-    var_dump($hashedpw);
-
-    echo count(mysqli_fetch_all($hashedpw)[0]);
-
-    if (password_verify(htmlspecialchars($_POST['password']), $dbPass) && count(mysqli_fetch_all($hashedpw)[0]) < 2)
+    if ($hashedpw -> num_rows > 0)
     {
-        $conn = Connect();
 
-        $sql = $conn->query("SELECT id FROM accounts WHERE username='$user'");
+        $dbPass = mysqli_fetch_all($hashedpw)[0][0];
 
-        $idArr = mysqli_fetch_all($sql);
+        if (password_verify(htmlspecialchars($_POST['password']), $dbPass) && count(mysqli_fetch_all($hashedpw))[0] < 2)
+        {
+            session_start();
 
-        $_SESSION['valid_user'] = $user;
+            $conn = Connect();
 
-        echo $idArr[0][0], $_SESSION['valid_user'];
+            $sql = $conn->query("SELECT id FROM accounts WHERE username='$user'");
+
+            $idArr = mysqli_fetch_all($sql);
+
+            $_SESSION['valid_user'] = $user;
+
+            echo $idArr[0][0], $_SESSION['valid_user'];
+
+        }
+        else
+        {
+          echo "Wrong username/password my man";
+        }
+
     }
+
     else
     {
-      echo "Wrong username/password my man";
+      echo "username not exist";
     }
 
   }
-  else {
+
+  else
+  {
     echo "You did not fill the form out";
   }
 

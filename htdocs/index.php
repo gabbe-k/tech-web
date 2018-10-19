@@ -27,9 +27,14 @@
 
 			<div class="main">
 				<form action="sql/sqpost.php" id="loginForm" method="post">
+					<input type="text" id="formfields" name="title" value="Title">
 					<input type="text" id="formfields" name="description" value="Description">
 					<input type="submit" id="submitbutton" value="Submit">
 				</form>
+
+				<?php
+					//PrintPosts();
+				 ?>
 			</div>
 
 			<div class="aside">
