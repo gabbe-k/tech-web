@@ -6,6 +6,10 @@
   require_once('sqconnect.php');
 
   $conn = Connect();
+  if(!isset($_SESSION)){ // if the session is not already set
+      // we start the session engine
+      session_start();
+  }
 
   if(validForm($_POST))
   {
@@ -23,7 +27,6 @@
 
         if (password_verify(htmlspecialchars($_POST['password']), $dbPass) && count(mysqli_fetch_all($hashedpw))[0] < 2)
         {
-            session_start();
 
             $conn = Connect();
 
@@ -35,9 +38,12 @@
 
             echo $idArr[0][0], $_SESSION['valid_user'];
 
+            header("Location: ../index.php");
+
         }
         else
         {
+          session_destroy();
           echo "Wrong username/password my man";
         }
 
@@ -45,6 +51,7 @@
 
     else
     {
+      session_destroy();
       echo "username not exist";
     }
 
@@ -52,6 +59,7 @@
 
   else
   {
+    session_destroy();
     echo "You did not fill the form out";
   }
 

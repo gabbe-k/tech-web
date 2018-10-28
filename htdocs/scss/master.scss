@@ -1,3 +1,9 @@
+@mixin fadein($time, $opacity) {
+    opacity: $opacity;
+  -webkit-transition: $time;
+    &:hover {opacity: 0.8};
+}
+
 * {
   margin: 0;
   font-family: sans-serif;
@@ -6,22 +12,22 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #333;
+    background: #333;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+    background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+    background: #555;
 }
 
 h1 {
@@ -48,7 +54,11 @@ p {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: "header header header header login" "intro intro intro intro intro" "aside main main main main" "footer footer footer footer footer";
+  grid-template-areas:
+  "header header header header login"
+  "intro intro intro intro intro"
+  "aside main main main main"
+  "footer footer footer footer footer";
 }
 
 .header {
@@ -100,11 +110,12 @@ p {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 1fr);
   padding: 1vh;
-}
-.login div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 }
 
 #loginForm {
@@ -118,13 +129,15 @@ p {
 }
 
 input[type=text]:focus {
-  transition: 0.5s;
-  border: 2px solid grey;
+    transition: 0.5s;
+    border: 2px solid grey;
 }
 
+
 #submitbutton {
-  opacity: 0.6;
-  -webkit-transition: 0.3s;
+
+  @include fadein(0.3s, 0.6);
+
   height: 25%;
   width: 100%;
   background-color: black;
@@ -136,9 +149,7 @@ input[type=text]:focus {
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
-}
-#submitbutton:hover {
-  opacity: 0.8;
+
 }
 
 .linkRegister {
@@ -149,21 +160,23 @@ input[type=text]:focus {
   text-decoration: none;
   color: black;
   opacity: 0.7;
+
 }
 
-#noAcc:hover {
-  opacity: 1;
-}
+#noAcc:hover {opacity: 1}
 
 .postGrid {
   display: grid;
   grid-template-columns: 1fr;
-}
-.postGrid div:nth-child(even) {
-  background: #999;
-}
-.postGrid div:nth-child(odd) {
-  background: #777;
+
+
+  & div:nth-child(even) {
+      background: #999;
+    }
+  & div:nth-child(odd) {
+          background: #777;
+    }
+
 }
 
 .info {
@@ -179,6 +192,5 @@ input[type=text]:focus {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   justify-items: center;
-}
 
-/*# sourceMappingURL=master.css.map */
+}
