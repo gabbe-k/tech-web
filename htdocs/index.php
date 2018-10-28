@@ -28,7 +28,7 @@
 
       </div>
 
-      <div class="postViewer">
+    <!--  <div class="postViewer">
 
         <div class="sorting">
           sorting
@@ -43,7 +43,7 @@
       <div class="postFooter">
         postFooter
       </div>
-
+-->
     </div>
 
   </body>
