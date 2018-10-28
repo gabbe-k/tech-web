@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="./css/master.css">
+		<link rel="stylesheet" type="text/css" href="../css/master.css">
     <title>Tags här</title>
 
   </head>
@@ -22,24 +22,31 @@
             <h1>Your current tags</h1>
           </div>
           <div id="tagviewer">
-            tags
+            <ul>
+              <li><a href="">Hello</a></li>
+              <li><a href="">Guys</a></li>
+              <li><a href="">toda</a></li>
+              <li><a href="">goto</a></li>
+            </ul>
           </div>
         </div>
 
       </div>
 
-    <!--  <div class="postViewer">
+ <div class="postViewer">
 
         <div class="sorting">
           sorting
         </div>
 
         <div class="postWindow">
-          postWindow
+
         </div>
 
       </div>
 
+
+      <!--
       <div class="postFooter">
         postFooter
       </div>

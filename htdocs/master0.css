@@ -159,17 +159,12 @@ input[type=text]:focus {
   display: grid;
   grid-template-columns: 1fr;
 }
-.postGrid div:nth-child(even) {
-  background: #999;
-}
-.postGrid div:nth-child(odd) {
-  background: #777;
-}
+
 
 .info {
   height: 100%;
   width: 100%;
-  padding: 10vh 0 10vh 0;
+  padding: 0 0 10vh 0;
 }
 
 .infoContent {
@@ -179,7 +174,65 @@ input[type=text]:focus {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   justify-items: center;
+  background: #999;
+}
+
+.infoContent div {
+    padding: 1vh 0 1vh 0;
+    background: #999;
+}
+
+.title {
+  display: grid;
   align-items: end;
+}
+
+#tagviewer {
+  display: grid;
+  align-items: start;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li:last-child {
+  margin-right: 0vh;
+}
+
+li {
+  border-radius: 0.2vw;
+  height: 5vh;
+  float: left;
+  background: #333;
+  margin-right: 1vh;
+  padding: 0 2vh 0 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+li a {
+  text-decoration: none;
+  color: #ccc;
+  font: 1em Helvetica, Verdana, sans-serif;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+li:hover {
+  background: #666;
+}
+
+li.active a {
+  font-weight: bold;
+  color: #333;
 }
 
 /*# sourceMappingURL=master.css.map */
