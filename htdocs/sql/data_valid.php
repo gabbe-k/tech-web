@@ -22,12 +22,9 @@
     }
   }
 
-  function SafeStrip($string)
+  function ClearTags($conn, $string)
   {
-
-      $string = strip_tags($string);
-      return $string;
-
+      return mysqli_real_escape_string($conn, $string);
   }
 
 ?>
