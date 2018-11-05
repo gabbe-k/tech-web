@@ -2,6 +2,7 @@
 
 <?php
     session_start();
+    require_once('sqlprint/prposts.php');
  ?>
 
 <html lang="en" dir="ltr">
@@ -53,56 +54,9 @@
 
  <div class="postViewer">
 
-          <div class="post">
-            <div class="title">
-              <h1>Title</h1>
-            </div>
-            <div class="content">
-              <p>sopsoeppsoop</p>
-            </div>
-            <div id="comments">
-              <div id="commfield">
-                <div class="comment">
-                    <div id ="usr">
-                      <p>Epix0r</p>
-                    </div>
-                    <div id="text">
-                      Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man
-                    </div>
-                </div>
-                <br>
-                <div class="comment">
-                    <div id ="usr">
-                      <p>Epix0r</p>
-                    </div>
-                    <div id="text">
-                      Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man
-                    </div>
-                </div>
-                <br>
-                <div class="comment">
-                    <div id ="usr">
-                      <p>Epix0r</p>
-                    </div>
-                    <div id="text">
-                      Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man
-                    </div>
-                </div>
-                <br>
-                <div class="comment">
-                    <div id ="usr">
-                      <p>Epix0r</p>
-                    </div>
-                    <div id="text">
-                      Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man                       Wow this is kinda shit my man
-                    </div>
-                </div>
-              </div>
-            </div>
-            <div class="commentbutton">
-              <button type="button" name="button" id="commButton"></button>
-            </div>
-          </div>
+    <?php
+      PrintPosts();
+     ?>
 
       </div>
 

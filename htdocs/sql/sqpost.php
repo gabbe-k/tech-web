@@ -11,7 +11,7 @@
 
   $tags = ClearTags($conn, $_POST['tags']);
 
-  $tagsArray = explode(' ', $tags);
+  $tagsArray = explode(',', $tags);
 
   $description = ClearTags($conn, $_POST['description']);
   $title = ClearTags($conn, $_POST['title']);
