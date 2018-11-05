@@ -53,12 +53,10 @@
       </div>
 
  <div class="postViewer">
-
     <?php
       PrintPosts();
      ?>
-
-      </div>
+</div>
 
 
       <!--
