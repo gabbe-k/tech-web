@@ -20,6 +20,7 @@
 
 			<div class="header">
 				<h2>Header</h2>
+        <a href="../postview.php">postview</a>
       </div>
 
 			<div class="intro">
