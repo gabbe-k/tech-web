@@ -16,7 +16,15 @@
   $description = ClearTags($conn, $_POST['description']);
   $title = ClearTags($conn, $_POST['title']);
 
-  $postId = rand(0, 9999);
+  $dupe = true;
+
+  while ($dupe = true) {
+
+    $postId = rand(0, 9999);
+
+    $dupe = DupeSearch($conn, "posts", "postId", $postId)
+
+  }
 
   for ($i=0; $i < count($tagsArray); $i++) {
 
@@ -43,7 +51,7 @@
 
   }
 
-  $conn->query("INSERT INTO posts (id, titleText, postText, postid) VALUES ('$id', '$title', '$description', '$postId')");
+  $conn->query("INSERT INTO posts (id, titleText, postText, postId) VALUES ('$id', '$title', '$description', '$postId')");
 
   Disconnect($conn);
  ?>

@@ -27,4 +27,20 @@
       return mysqli_real_escape_string($conn, $string);
   }
 
+  function DupeSearch($conn, $database, $item, $value) {
+
+    $sqlComm = "SELECT '$item' FROM '$database' WHERE '$database'.'$item' = '$value'";
+    $result = mysqli_query($conn, $sqlComm);
+
+    var_dump($result);
+
+    if (!$result) {
+      return false;
+    }
+    else {
+      return true;
+    }
+
+  }
+
 ?>
