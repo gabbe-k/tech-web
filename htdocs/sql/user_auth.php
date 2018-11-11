@@ -1,5 +1,6 @@
 <?php
     require_once('sqconnect.php');
+    require_once('data_valid.php');
 
     function Register($username, $email, $password)
     {
@@ -18,8 +19,17 @@
             throw new Exception('Username is taken.');
         }
 
+        $dupe = true;
 
-        $id = rand(0,9999);
+        while ($dupe) {
+
+          $id = rand(0, 9999);
+
+          if (!DupeSearch($conn, "accounts", "id", $id)) {
+            $dupe = false;
+          }
+
+        }
 
         //if ok, put in db
         $result = $conn->query("INSERT INTO accounts(id, username, email, password) VALUES('$id', '$username', '$email', '$password')");

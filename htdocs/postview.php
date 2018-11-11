@@ -66,37 +66,59 @@
 -->
     </div>
 
-  
+
 
   </body>
 
 <script type="text/javascript">
 
-  $('#commButton').click(function() {
 
-      $('#commfield').addClass('animatable--now');
-      $('#commButton').addClass('animatable--now');
-      $('.commentbutton').addClass('animatable--now');
+    $('.postViewer').click(function(event) {
 
-    if (!$('#commfield').hasClass('commShow')) {
+        var log = $('#log');
 
-      $('#commfield').addClass('commShow');
-      $('#commButton').addClass('buttonClicked');
-      $('.commentbutton').addClass('commClicked');
+        if($(event.target).parent().parent().is('.post') && $(event.target).is('#commButton')) {
 
-    }
-    else {
-      $('#commButton').removeClass('buttonClicked');
-      $('#commfield').removeClass('commShow');
-      $('.commentbutton').removeClass('commClicked');
+          var commfield = $(event.target).parent().siblings('#comments').children();
+          console.log(commfield);
+          var commButton = $(event.target);
+          console.log(commButton);
+          var divCommButtom = $(event.target).parent('.commentbutton');
 
-      $('#commfield').on('transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd', function(event) {
-        $('#commfield').removeClass('animatable--now');
-        $('#commButton').removeClass('animatable--now');
-        $('.commentbutton').removeClass('animatable--now');
-      });
-    }
-  });
+
+          $(commfield).addClass('animatable--now');
+          $(commButton).addClass('animatable--now');
+          $(divCommButtom).addClass('animatable--now');
+
+          if (!$(commfield).hasClass('commShow')) {
+
+            $(commfield).addClass('commShow');
+            $(commButton).addClass('buttonClicked');
+            $(divCommButtom).addClass('commClicked');
+
+          }
+          else {
+
+            $(commfield).removeClass('commShow');
+            $(commButton).removeClass('buttonClicked');
+            $(divCommButtom).removeClass('commClicked');
+
+            $(commfield).on('transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd', function(event) {
+              $(commfield).removeClass('animatable--now');
+              $(commButton).removeClass('animatable--now');
+              $(divCommButtom).removeClass('animatable--now');
+            });
+
+          }
+
+        }
+        else {
+
+           console.log('someting was clicked.');
+
+        }
+    });
+
 
 </script>
 

@@ -8,7 +8,7 @@ $conn = Connect();
 
 $id = $_SESSION['u_id'];
 $commText = ClearTags($conn, $_POST['commText']);
-$postId = $_SESSION['postId'];
+$postId = $_POST['postId'];
 
 $dupe = true;
 
@@ -25,4 +25,6 @@ while ($dupe) {
 $conn->query("INSERT INTO comments (id, commText, commId, postId) VALUES ('$id', '$commText', '$commId', '$postId')");
 
 Disconnect($conn);
+
+header("Location: ../postview.php")
  ?>

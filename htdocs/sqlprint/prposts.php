@@ -44,6 +44,7 @@ else {
            <form class="" action="../../sql/sqcomment.php" method="post">
              <input type="text" name="commText" value="sope">
              <input type="submit" name="" value="comment">
+             <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>" />
            </form>
          </div>
 
