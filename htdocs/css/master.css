@@ -188,6 +188,7 @@ input[type=text]:focus {
 }
 .info #tagviewer {
   display: grid;
+  grid-template-columns: 1fr 0.2fr;
   align-items: start;
 }
 .info #tagviewer #addTags {
@@ -217,6 +218,27 @@ input[type=text]:focus {
 }
 .info #tagviewer #addTags:focus {
   transform: rotate(180deg);
+}
+.info #tagviewer #tagDiv {
+  height: 2.75vh;
+}
+.info #tagviewer #addTagForm {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 0.15rem 0 0rem rgba(0, 0, 0, 0.25);
+  display: none;
+}
+.info #tagviewer #addTagForm input {
+  width: 100%;
+  height: 100%;
+  background: #7f7f7f;
+  border: none;
+  outline: none;
+  color: #5b5b5b;
+}
+.info #tagviewer #addTagForm input {
+  padding: none;
 }
 .info ul {
   list-style-type: none;
@@ -311,6 +333,14 @@ input[type=text]:focus {
   background: #7f7f7f;
   border: none;
   outline: none;
+  color: #5b5b5b;
+}
+.sorting .search .searchField input {
+  width: 100%;
+  height: 100%;
+  background: #7f7f7f;
+  border: none;
+  outline: none;
   margin: 0 0 0 -4vh;
   color: #d3d3d3;
   background: #5b5b5b;
@@ -359,11 +389,11 @@ input[type=text]:focus {
 .postViewer {
   grid-area: posts;
   margin: 2vh;
+  margin-top: 2.1vh;
   background: rgba(0, 0, 0, 0);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-gap: 5vh;
+  grid-gap: 2vh;
 }
 .postViewer .post {
   z-index: 998;
