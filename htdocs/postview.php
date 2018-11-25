@@ -82,9 +82,13 @@
 
     $('#addTags').click(function(event) {
 
-      $('#addTags').hide();
-      $('#addTagForm').show();
+      $('#addTags').addClass('animatable--now');
+      $('#addTagForm').addClass('animatable--now');
 
+      $('#addTags').fadeOut(150, function() {
+          $(this).hide();
+          $('#addTagForm').addClass('isShown');
+      });
 
 
     });
@@ -114,6 +118,8 @@
 
           }
           else {
+
+            $(commfield).animate({ scrollTop: "0" });
 
             $(commfield).removeClass('commShow');
             $(commButton).removeClass('buttonClicked');

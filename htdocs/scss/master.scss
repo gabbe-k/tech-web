@@ -255,8 +255,9 @@ input[type=text]:focus {
 
   #tagviewer {
     display: grid;
-    grid-template-columns: 1fr 0.2fr;
+    grid-template-columns: 1fr 0.3fr;
     align-items: start;
+    height: 100%;
 
     #addTags {
 
@@ -269,6 +270,7 @@ input[type=text]:focus {
       height: 2em;
       width: 2em;
       transition: transform 0.2s;
+      opacity: 1;
 
       &:focus  {
         transform: rotate(180deg);
@@ -277,15 +279,22 @@ input[type=text]:focus {
     }
 
     #tagDiv {
-      height: 2.75vh;
+      height: 1.55em;
     }
 
     #addTagForm {
       @include formMix();
-      display: none;
+      width: 0%;
+      padding: 0;
+      box-shadow: 0 0.25rem 0 -.1rem rgba(0,0,0,.1);
 
       input {
-        padding: none;
+        padding-left: 0.6vh;
+        background: $one;
+        border-radius: 0.1em;
+        font-size: 0.7em;
+        font-weight: 400;
+
       }
     }
 
@@ -526,6 +535,15 @@ input[type=text]:focus {
 
 .animatable--now.buttonClicked,
 .animatable--now.commShow,
-.animatable--now.commClicked {
+.animatable--now.commClicked,
+.animatable--now.isShown {
   transition: all 200ms ease-out;
+}
+
+.isShown {
+  width: 100% !important;
+}
+
+.fadeout {
+  opacity: 0 !important;
 }
