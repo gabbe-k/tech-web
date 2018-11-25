@@ -28,22 +28,21 @@
           <div class="title">
             <h1>Your current tags</h1>
           </div>
-          <div id="tagviewer">
-              <div id="tagList">
-                <ul>
-                  <a href=""><li>Hello</li></a>
-                  <a href=""><li>Guys</li></a>
-                  <a href=""><li>toda</li></a>
-                  <a href=""><li>goto</li></a>
-                </ul>
-              </div>
+          <div class="tagSection">
+            <div id="tagviewer">
 
-              <div id="tagDiv">
-                <button type="button" name="button" id="addTags"></button>
-                <form id="addTagForm" action="index.html" method="post">
-                  <input type="text" name="addTags" value="Add tags...">
-                </form>
-              </div>
+                <div><a href="">Big</a></div>
+                <div><a href="">Man</a></div>
+                <div><a href="">Tyrone</a></div>
+                <div><a href="">xd</a></div>
+
+                <div id="addDiv">
+                  <button type="button" name="button" id="addTags"></button>
+                  <form id="addTagForm" action="index.html" method="post">
+                    <input type="text" name="addTags" value="Add tags...">
+                  </form>
+                </div>
+            </div>
           </div>
         </div>
 
@@ -88,6 +87,11 @@
       $('#addTags').fadeOut(150, function() {
           $(this).hide();
           $('#addTagForm').addClass('isShown');
+      });
+
+      $('#addTagForm').on('transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd', function(event) {
+        $('#addTagForm').removeClass('animatable--now');
+        $('#addTags').removeClass('animatable--now');
       });
 
 
