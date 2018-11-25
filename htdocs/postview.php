@@ -92,6 +92,7 @@
       $('#addTags').fadeOut(150, function() {
           $(this).hide();
           $('#addTagForm').addClass('isShown');
+          $('#addTagForm').fadeIn(300);
       });
 
       $('#addTagForm').on('transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd', function(event) {

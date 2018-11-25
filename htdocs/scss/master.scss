@@ -529,14 +529,13 @@ input[type=text]:focus {
   height: 2.5rem !important;
 }
 
-.animatable--now {
+.animatable--now.isShown {
   transition: all 200ms ease-out;
 }
 
 .animatable--now.buttonClicked,
 .animatable--now.commShow,
-.animatable--now.commClicked,
-.animatable--now.isShown {
+.animatable--now.commClicked {
   transition: all 200ms ease-out;
 }
 
@@ -548,8 +547,4 @@ input[type=text]:focus {
   input {
     display: block !important;
   }
-}
-
-.fadeout {
-  opacity: 0 !important;
 }
