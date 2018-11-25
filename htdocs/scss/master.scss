@@ -146,17 +146,17 @@ p {
 
 .footer {
   grid-area: footer;
-  height: 12.5vh;
+  height: 12.5rem;
   background: grey;
 }
 
 .login {
   grid-area: login;
   display: grid;
-  height: 12.5vh;
+  height: 12.5rem;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 1fr);
-  padding: 1vh;
+  padding: 1rem;
 
   div {
       display: flex;
@@ -190,7 +190,7 @@ input[type=text]:focus {
   background-color: $six;
   border: none;
   color: $one;
-  padding: 0.5vh 0.5vh;
+  padding: 0.5rem 0.5rem;
   text-align: center;
   font-size: 0.75rem;
   display: inline-block;
@@ -250,7 +250,7 @@ input[type=text]:focus {
     display: grid;
     align-items: end;
   }
-  
+
   #tagviewer {
     display: inline-grid;
     grid-auto-flow: column;
@@ -340,16 +340,16 @@ input[type=text]:focus {
 
 .sorting {
   grid-area: sorting;
-  height: 5vh;
-  padding: 1vh;
+  height: 2rem;
+  padding: 0.5rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr;
   box-shadow: 0 0.4rem 0 -.1rem rgba(0,0,0,.25);
   background: $five;
   color: $one;
-  border-bottom-right-radius: 1.5vh;
-  border-bottom-left-radius: 0.2vh;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 0.1rem;
   z-index: 998;
 
   div {
@@ -374,7 +374,7 @@ input[type=text]:focus {
         background: $four;
         border: none;
         outline: none;
-        margin: 0 0 0 -4vh;
+        margin: 0 0 0 -1.25rem;
         color: $two;
         background: $five;
         background-image:  url("../img/search.svg");
@@ -385,7 +385,7 @@ input[type=text]:focus {
 
         &:focus {
           background: $five;
-          margin: 0 0 0 1vh;
+          margin: 0 0 0 0.5rem;
         }
       }
     }
@@ -400,10 +400,10 @@ input[type=text]:focus {
     height: 100%;
     background-color: $six;
     color: $one;
-    padding: 1vh 4vh 1vh 4vh;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     font-size: 0.8rem;
-    border-radius: 0.2vh;
-    border-bottom-right-radius: 1vh;
+    border-radius: 0.1rem;
+    border-bottom-right-radius: 0.55rem;
 
       &:active  {
         box-shadow: none !important;
@@ -417,12 +417,12 @@ input[type=text]:focus {
 
 .postViewer {
   grid-area: posts;
-  margin: 2vh;
-  margin-top: 2.1vh;
+  margin: 1rem;
+  margin-top: 1rem;
   background: rgba(0, 0 ,0 ,0);
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2vh;
+  grid-gap: 1rem;
 
   .post {
 
@@ -440,14 +440,14 @@ input[type=text]:focus {
     "commentbutton";
 
     div:not(.commentbutton):not(#usrImg):not(#commText):not(#usr):not(#commfield) {
-      padding: 1vh;
+      padding: 0.5rem;
       background: #ededed;
     }
 
     .title {
       grid-area: title;
       box-shadow: 0 0.25rem 0 -.1rem rgba(0,0,0,.25);
-      margin-bottom: 0vh !important;
+      margin-bottom: 0rem !important;
 
       h1{
         color: $three;
@@ -457,7 +457,7 @@ input[type=text]:focus {
 
     .content {
       grid-area: content;
-      height: 20vh;
+      height: 10rem;
       box-shadow: 0 0.25rem 0 -.1rem rgba(0,0,0,.25);
     }
 
@@ -467,8 +467,8 @@ input[type=text]:focus {
     }
 
    #commfield {
-      min-height: 5vh;
-      max-height: 5vh;
+      min-height: 2.5rem;
+      max-height: 2.5rem;
       overflow-y: hidden;
       -webkit-transform :none;
       transform: none;
@@ -482,8 +482,8 @@ input[type=text]:focus {
     .commentbutton {
 
       grid-area: commentbutton;
-      height: 10vh;
-      margin-top: -10vh;
+      height: 5rem;
+      margin-top: -5rem;
       z-index: 998;
       display: flex;
       justify-content: center;
@@ -498,7 +498,7 @@ input[type=text]:focus {
         transition: transform 300ms;
 
         width: 10%;
-        height: 5vh;
+        height: 2rem;
         opacity: 0.3;
         background:  url("../img/down.svg");
         background-size: 100% 100%;
@@ -516,17 +516,17 @@ input[type=text]:focus {
 }
 
 .commShow {
-  min-height: 5vh !important;
-  max-height: 20vh !important;
+  min-height: 2.5rem !important;
+  max-height: 10rem !important;
   overflow-y: auto !important;
   scroll-snap-type: y mandatory !important;
   scroll-snap-type: mandatory !important;
 }
 
 .commClicked {
-  margin-top: 0vh !important;
+  margin-top: 0rem !important;
   background: #ededed !important;
-  height: 5vh !important;
+  height: 2.5rem !important;
 }
 
 .animatable--now {
