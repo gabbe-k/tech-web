@@ -340,7 +340,6 @@ input[type=text]:focus {
 
 .sorting {
   grid-area: sorting;
-  height: 2rem;
   padding: 0.5rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -374,7 +373,7 @@ input[type=text]:focus {
         background: $four;
         border: none;
         outline: none;
-        margin: 0 0 0 -1.25rem;
+        margin: 0 0 0 -1.5rem;
         color: $two;
         background: $five;
         background-image:  url("../img/search.svg");
