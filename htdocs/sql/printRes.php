@@ -6,21 +6,25 @@
 
   $tags = $_POST['tags'];
 
-  $tagSql = "SELECT tagId FROM `tags` WHERE tags.tagText IN ( 'hello' )";
+  $tagSql = "SELECT tagId FROM `tags` WHERE tagText LIKE '%$tags%'";
 
   $result = mysqli_query($conn, $tagSql);
 
-  $row = mysqli_fetch_assoc($result);
+  $resultLen = mysqli_num_rows($result);
 
-  echo $row['tagId'];
+  var_dump($result);
 
-  $sql = "SELECT titleText, postText FROM `posts, posttag, tags` WHERE posts.tagId LIKE '$row[tagId]'";
+  for ($i=0; $i < $resultLen; $i++) {
+      $row = mysqli_fetch_assoc($result);
+      $tagId = $row['tagId'];
+  }
 
-  $result2 = mysqli_query($conn, $sql);
-
-  $resultLen = mysqli_num_rows($result2);
-
-  echo $resultLen;
+$sql = "SELECT posts.titleText, posts.postText FROM `posts, posttag, tags` WHERE posttag.tagId = '$tagId' AND posts.postId = posttag.postId";
+$result2 = mysqli_query($conn, $sql);
+$result2Len = mysqli_num_rows($result2);
+  for ($i=0; $i < $result2Len; $i++) {
+  $rowpost = mysqli_fetch_assoc($result);
+  }
 
   Disconnect($conn);
 
