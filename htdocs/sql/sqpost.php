@@ -18,13 +18,17 @@
 
   $dupe = true;
 
-  while ($dupe = true) {
+  $postId = rand(0, 9999);
 
-    $postId = rand(0, 9999);
 
-    $dupe = DupeSearch($conn, "posts", "postId", $postId)
+//Not work sir
+/*  while ($dupe = true) {
 
-  }
+
+
+    $dupe = DupeSearch($conn, "posts", "postId", $postId);
+
+  } */
 
   for ($i=0; $i < count($tagsArray); $i++) {
 

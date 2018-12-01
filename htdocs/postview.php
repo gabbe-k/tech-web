@@ -55,8 +55,8 @@
 
       <div class="sorting">
         <div class="search">
-          <form class="searchField" action="index.html" method="post">
-            <input type="text" name=""></input>
+          <form class="searchField" action="../sql/printRes.php" method="post">
+            <input type="text" name="tags"></input>
           </form>
         </div>
         <div class="dropDwn">
