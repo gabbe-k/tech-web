@@ -6,7 +6,10 @@ function PrintPosts() {
 
 $conn = Connect();
 
-$sql = "SELECT accounts.username, posts.id, posts.titleText, posts.postText, posts.postId FROM accounts, posts WHERE posts.id = accounts.id";
+$postIdArr = $_SESSION['postIdSELECT'];
+
+$sql = "SELECT accounts.username, posts.id, posts.titleText, posts.postText, posts.postId FROM accounts, posts WHERE posts.postId IN ($postIdArr) AND posts.id = accounts.id";
+
 $result = mysqli_query($conn, $sql);
 $resultLen = mysqli_num_rows($result);
 

@@ -27,19 +27,29 @@
       return mysqli_real_escape_string($conn, $string);
   }
 
-  function DupeSearch($conn, $database, $item, $value) {
+  function DupeSearch($conn, $database, $item) {
 
-    $sqlComm = "SELECT '$item' FROM '$database' WHERE '$database'.'$item' = '$value'";
-    $result = mysqli_query($conn, $sqlComm);
+    $dupe = true;
 
-    var_dump($result);
+    while ($dupe) {
 
-    if (!$result) {
-      return false;
+      $idVal = rand(0, 9999);
+
+      $sqlComm = "SELECT '$item' FROM '$database' WHERE '$database'.'$item' = '$idVal'";
+      $result = mysqli_query($conn, $sqlComm);
+
+      var_dump($result);
+
+      if (!$result) {
+        $dupe = false;
+      }
+      else {
+        $dupe = true;
+      }
+
     }
-    else {
-      return true;
-    }
+
+    return $idVal;
 
   }
 

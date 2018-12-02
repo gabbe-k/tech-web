@@ -9,28 +9,14 @@
   $usr = ClearTags($conn, $_SESSION['u_user']);
   $id = ClearTags($conn, $_SESSION['u_id']);
 
-  $tags = ClearTags($conn, $_POST['tags']);
-
-  $tagsArray = explode(',', $tags);
-
   $description = ClearTags($conn, $_POST['description']);
   $title = ClearTags($conn, $_POST['title']);
 
-  $dupe = true;
+  $postId = DupeSearch($conn, "comments", "commId");
 
-//Not work sir
-/*
- while ($dupe = true) {
+  $tags = ClearTags($conn, $_POST['tags']);
 
-    $postId = rand(0, 9999);
-
-    if (!DupeSearch($conn, "posts", "postId", $postId)) {
-    	$dupe = false;
-    }
-
-  } */
-
-  $postId = rand(0, 9999);
+  $tagsArray = explode(',', $tags);
 
   for ($i=0; $i < count($tagsArray); $i++) {
 

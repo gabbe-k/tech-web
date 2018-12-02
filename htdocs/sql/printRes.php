@@ -1,31 +1,60 @@
 <?php
   require_once('sqconnect.php');
   require_once('data_valid.php');
+  session_start();
 
   $conn = Connect();
 
-  $tags = $_POST['tags'];
+  $tag = ClearTags($conn, $_POST['tagSearch']);
 
-  $tagSql = "SELECT tagId FROM `tags` WHERE tagText LIKE '%$tags%'";
+  $_SESSION['tagText'][] = $tag;
 
-  $result = mysqli_query($conn, $tagSql);
+  print_r(array_values($_SESSION['tagText']));
 
-  $resultLen = mysqli_num_rows($result);
+  $tagsPicked = "";
 
-  var_dump($result);
+  for ($i=0; $i < count($_SESSION['tagText']); $i++) {
 
-  for ($i=0; $i < $resultLen; $i++) {
-      $row = mysqli_fetch_assoc($result);
-      $tagId = $row['tagId'];
+    $tmp = $_SESSION['tagText'][$i];
+
+    if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
+      $tagsPicked = $tagsPicked . "'%" . $tmp . "%'";
+    }
+    else {
+      $tagsPicked = $tagsPicked . "'%" . $tmp . "%'" . " OR ";
+    }
   }
 
-$sql = "SELECT posts.titleText, posts.postText FROM `posts, posttag, tags` WHERE posttag.tagId = '$tagId' AND posts.postId = posttag.postId";
-$result2 = mysqli_query($conn, $sql);
-$result2Len = mysqli_num_rows($result2);
-  for ($i=0; $i < $result2Len; $i++) {
-  $rowpost = mysqli_fetch_assoc($result);
-  }
+  $sqlTagId = "SELECT tagId FROM `tags` WHERE tagText LIKE($tagsPicked)";
+
+  $sqlPostId = "SELECT postId FROM `posttag` WHERE tagId IN ($sqlTagId)";
+
+  $_SESSION['postIdSELECT'] = $sqlPostId;
+
+  echo $_SESSION['postIdSELECT'];
 
   Disconnect($conn);
+
+  /*
+  not work atm
+    for ($i=0; $i < count($_SESSION['tagText']); $i++) {
+
+      $tmp = $_SESSION['tagText'][$i];
+
+      if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
+        $tagsPicked = $tagsPicked . "\"" . $tmp . "\"";
+      }
+      else {
+        $tagsPicked = $tagsPicked . "\"" . $tmp . "\"" . " OR ";
+      }
+    }
+
+    echo $tagsPicked;
+
+    $sqlTagId = "SELECT tagId FROM `tags` WHERE CONTAINS(tagText, '$tagsPicked')
+    GROUP BY tagId
+    HAVING COUNT(DISTINCT tagText) = (SELECT COUNT(tagText) FROM tags)";
+  */
+
 
  ?>

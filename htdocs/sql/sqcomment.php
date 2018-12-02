@@ -10,17 +10,7 @@ $id = $_SESSION['u_id'];
 $commText = ClearTags($conn, $_POST['commText']);
 $postId = $_POST['postId'];
 
-$dupe = true;
-
-while ($dupe) {
-
-  $commId = rand(0, 9999);
-
-  if (!DupeSearch($conn, "comments", "commId", $commId)) {
-    $dupe = false;
-  }
-
-}
+$commId = DupeSearch($conn, "comments", "commId");
 
 $conn->query("INSERT INTO comments (id, commText, commId, postId) VALUES ('$id', '$commText', '$commId', '$postId')");
 

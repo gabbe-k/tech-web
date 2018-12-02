@@ -43,8 +43,8 @@
 
                 <div id="addDiv">
                   <button type="button" name="button" id="addTags"></button>
-                  <form id="addTagForm" action="index.html" method="post">
-                    <input type="text" name="addTags" value="Add tags...">
+                  <form id="addTagForm" action="../sql/printRes.php" method="post">
+                    <input type="text" name="tagSearch" value="Add tags...">
                   </form>
                 </div>
             </div>
@@ -55,7 +55,7 @@
 
       <div class="sorting">
         <div class="search">
-          <form class="searchField" action="../sql/printRes.php" method="post">
+          <form class="searchField" action="" method="post">
             <input type="text" name="tags"></input>
           </form>
         </div>
