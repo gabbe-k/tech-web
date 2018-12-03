@@ -9,6 +9,7 @@
 
   $tag = preg_replace('/[^a-zA-Z0-9_]/', '', $tag);
 
+  //här ska vi inte visa en ofärdig tagg
   $_SESSION['tagText'][] = $tag;
 
   $tagsPicked = "";
