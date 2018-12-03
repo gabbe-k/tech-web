@@ -3,6 +3,7 @@
 <?php
     session_start();
     require_once('sqlprint/prposts.php');
+    require_once('sqlprint/prtags.php');
  ?>
 
 <html lang="en" dir="ltr">
@@ -31,19 +32,13 @@
           <div class="tagSection">
             <div id="tagviewer">
 
-                <div><a href="">Big</a></div>
-                <div><a href="">Man</a></div>
-                <div><a href="">ggge</a></div>
-                <div><a href="">xd</a></div>
-                <div><a href="">xd</a></div>
-                <div><a href="">xd</a></div>
-                <div><a href="">xdffffff</a></div>
-                <div><a href="">xd</a></div>
-                <div><a href="">hej pojkar</a></div>
+                <?php
+                    PrintTags();
+                 ?>
 
                 <div id="addDiv">
                   <button type="button" name="button" id="addTags"></button>
-                  <form id="addTagForm" action="../sql/printRes.php" method="post">
+                  <form id="addTagForm" action="../sql/sqaddtags.php" method="post">
                     <input type="text" name="tagSearch" value="Add tags...">
                   </form>
                 </div>

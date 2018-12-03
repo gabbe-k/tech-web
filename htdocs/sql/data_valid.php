@@ -10,16 +10,8 @@
       return true;
     }
 
-  //funkar ej
-  function valid_email($email) {
-    if (preg_match('^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$', $email))
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+  function isValidEmail($email){
+      return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
   }
 
   function ClearTags($conn, $string)

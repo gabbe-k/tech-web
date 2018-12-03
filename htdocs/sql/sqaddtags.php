@@ -1,27 +1,60 @@
 <?php
+  require_once('sqconnect.php');
+  require_once('data_valid.php');
+  session_start();
 
-  $tags = ClearTags($conn, $_POST['tagSearch']);
+  $conn = Connect();
 
-  $tagsArray = explode(',', $tags);
+  $tag = ClearTags($conn, $_POST['tagSearch']);
 
-  $sessionTags = array();
+  $tag = preg_replace('/[^a-zA-Z0-9_]/', '', $tag);
 
-  for ($i=0; $i < count($tagsArray); $i++) {
+  $_SESSION['tagText'][] = $tag;
 
-    $result = mysqli_query($conn, "SELECT tagText FROM tags WHERE tagText='$tagsArray[$i]'");
-    $resultLen = mysqli_num_rows($result);
+  $tagsPicked = "";
 
-    if ($resultLen > 0) {
-      $row = mysqli_fetch_assoc($result);
-      $sessionTags[] = $row['tagText'];
+  for ($i=0; $i < count($_SESSION['tagText']); $i++) {
+
+    $tmp = $_SESSION['tagText'][$i];
+
+    if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
+      $tagsPicked = $tagsPicked . "'%" . $tmp . "%'";
     }
     else {
-      echo "no tags have this name sir";
-      exit();
+      $tagsPicked = $tagsPicked . "'%" . $tmp . "%'" . " OR ";
     }
-
   }
 
-  $_SESSION['tagTextArr'] = $sessionTags;
+  $sqlTagId = "SELECT tagId FROM `tags` WHERE tagText LIKE($tagsPicked)";
+
+  $sqlPostId = "SELECT postId FROM `posttag` WHERE tagId IN ($sqlTagId)";
+
+  $_SESSION['postIdSELECT'] = $sqlPostId;
+
+  header("Location: ../postview.php");
+
+  Disconnect($conn);
+
+  /*
+  not work atm
+    for ($i=0; $i < count($_SESSION['tagText']); $i++) {
+
+      $tmp = $_SESSION['tagText'][$i];
+
+      if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
+        $tagsPicked = $tagsPicked . "\"" . $tmp . "\"";
+      }
+      else {
+        $tagsPicked = $tagsPicked . "\"" . $tmp . "\"" . " OR ";
+      }
+    }
+
+    echo $tagsPicked;
+
+    $sqlTagId = "SELECT tagId FROM `tags` WHERE CONTAINS(tagText, '$tagsPicked')
+    GROUP BY tagId
+    HAVING COUNT(DISTINCT tagText) = (SELECT COUNT(tagText) FROM tags)";
+  */
+
 
  ?>

@@ -10,10 +10,9 @@
         throw new Exception('You have not filled out the form correctly - please try again.');
       }
 
-      //funkar ej
-      //if (!valid_email($email)) {
-        //throw new Exception('That is not a valid email address');
-      //}
+      if (!isValidEmail($_POST["email"])) {
+        throw new Exception('That is not a valid email address');
+      }
 
       //pass not same
       if ($_POST["passwd"] != $_POST["passwordconfirm"]) {

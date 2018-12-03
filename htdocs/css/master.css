@@ -253,6 +253,7 @@ input[type=text]:focus {
   background: #ededed;
   font-size: 0.7rem;
   font-weight: 400;
+  height: 2rem;
 }
 .info #tagviewer a {
   z-index: 999;
