@@ -9,19 +9,14 @@
 
   $tag = preg_replace('/[^a-zA-Z0-9_]/', '', $tag);
 
-<<<<<<< HEAD
   if (isset($_SESSION['tagText']) && ($key = array_search($tag, $_SESSION['tagText'])) !== false) {
       echo "already have";
       Disconnect($conn);
       exit();
   }
   else {
-=======
   //här ska vi inte visa en ofärdig tagg
   $_SESSION['tagText'][] = $tag;
->>>>>>> 70d644e8d80f4427decbc3b1ae87711396a11bcc
-
-      $_SESSION['tagText'][] = $tag;
 
       $tagsPicked = "";
 
