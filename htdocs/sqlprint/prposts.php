@@ -10,13 +10,18 @@ $tagsPicked = "";
 
 for ($i=0; $i < count($_SESSION['tagText']); $i++) {
 
-  $tmp = $_SESSION['tagText'][$i];
+  if (isset($_SESSION['tagText'][$i])) {
+    $tmp = $_SESSION['tagText'][$i];
 
-  if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
-    $tagsPicked = $tagsPicked . "'" . $tmp . "'";
+    if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
+      $tagsPicked = $tagsPicked . "'" . $tmp . "'";
+    }
+    else {
+      $tagsPicked = $tagsPicked . "'" . $tmp . "'" . ",";
+    }
   }
   else {
-    $tagsPicked = $tagsPicked . "'" . $tmp . "'" . ",";
+    $i++;
   }
 }
 
