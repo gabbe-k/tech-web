@@ -24,7 +24,7 @@
     $resultLen = mysqli_num_rows($result);
 
     if ($resultLen > 0) {
-
+      
       $row = mysqli_fetch_assoc($result);
       $lenResultTagId = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM posttag WHERE tagId='$row[tagId]'"));
 
