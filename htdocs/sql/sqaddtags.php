@@ -9,31 +9,50 @@
 
   $tag = preg_replace('/[^a-zA-Z0-9_]/', '', $tag);
 
-  $_SESSION['tagText'][] = $tag;
+  if (isset($_SESSION['tagText']) && ($key = array_search($tag, $_SESSION['tagText'])) !== false) {
+      echo "already have";
+      Disconnect($conn);
+      exit();
+  }
+  else {
 
-  $tagsPicked = "";
+      $_SESSION['tagText'][] = $tag;
 
-  for ($i=0; $i < count($_SESSION['tagText']); $i++) {
+      $tagsPicked = "";
 
-    $tmp = $_SESSION['tagText'][$i];
+      for ($i=0; $i < count($_SESSION['tagText']); $i++) {
 
-    if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
-      $tagsPicked = $tagsPicked . "'%" . $tmp . "%'";
-    }
-    else {
-      $tagsPicked = $tagsPicked . "'%" . $tmp . "%'" . " OR ";
-    }
+        $tmp = $_SESSION['tagText'][$i];
+
+        if (count($_SESSION['tagText']) == 1 || $i == count($_SESSION['tagText']) - 1) {
+          $tagsPicked = $tagsPicked . "'%" . $tmp . "%'";
+        }
+        else {
+          $tagsPicked = $tagsPicked . "'%" . $tmp . "%'" . " OR ";
+        }
+      }
+
+      $sqlTag = "SELECT * FROM `tags` WHERE tagText LIKE($tagsPicked)";
+
+      $sqlPostId = "SELECT postId FROM `posttag` WHERE tagId IN ($sqlTag)";
+
+      $_SESSION['postIdSELECT'] = $sqlPostId;
+
+      $result = mysqli_query($conn, $sqlTag);
+
+      $resultLen = mysqli_num_rows($result);
+
+      for ($i=0; $i <  $resultLen; $i++) {
+        $row = mysqli_fetch_assoc($result);
+
+        $_SESSION['tagText'] = $row['tagText'];
+      }
+
+      Disconnect($conn);
+      exit();
   }
 
-  $sqlTagId = "SELECT tagId FROM `tags` WHERE tagText LIKE($tagsPicked)";
 
-  $sqlPostId = "SELECT postId FROM `posttag` WHERE tagId IN ($sqlTagId)";
-
-  $_SESSION['postIdSELECT'] = $sqlPostId;
-
-  header("Location: ../postview.php");
-
-  Disconnect($conn);
 
   /*
   not work atm
