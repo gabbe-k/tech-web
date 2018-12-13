@@ -30,6 +30,7 @@
         echo "added tag: " . $tag;
       }
 
+      header("Location: ../postview.php");
       Disconnect($conn);
       exit();
   }

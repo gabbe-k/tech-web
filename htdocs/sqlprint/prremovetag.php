@@ -7,6 +7,7 @@
 
     if (($key = array_search($tag, $tagsArray)) !== false) {
         unset($tagsArray[$key]);
+        $tagsArray = array_values($tagsArray);
     }
 
     $_SESSION['tagText'] = $tagsArray;
