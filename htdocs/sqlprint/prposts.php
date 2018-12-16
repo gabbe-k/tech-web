@@ -33,10 +33,10 @@ $sqlPostId = "SELECT a.postId FROM posttag a INNER JOIN
         (
             SELECT  postId, COUNT(*) totalCount
             FROM    posttag
-            WHERE tagId IN (SELECT tagId FROM `tags` WHERE tagText IN('one', 'two', 'three'))
+            WHERE tagId IN (SELECT tagId FROM `tags` WHERE tagText IN($tagsPicked))
             GROUP   BY postId
         ) b ON  a.postId = b.postId
-            WHERE tagId IN (SELECT tagId FROM `tags` WHERE tagText IN('one', 'two', 'three')) ORDER BY b.TotalCount DESC, a.tagId ASC";
+            WHERE tagId IN (SELECT tagId FROM `tags` WHERE tagText IN($tagsPicked)) ORDER BY b.TotalCount DESC, a.tagId ASC";
 
 $sql = "SELECT accounts.username, posts.id, posts.titleText, posts.postText, posts.postId FROM accounts, posts WHERE posts.postId IN($sqlPostId) AND posts.id = accounts.id";
 
