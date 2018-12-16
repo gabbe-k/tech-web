@@ -3,6 +3,9 @@
   require_once('data_valid.php');
   session_start();
 
+  //https://www.red-gate.com/simple-talk/blogs/string-comparisons-in-sql-edit-distance-and-the-levenshtein-algorithm/
+  //BIG SEARCH ALGORITM
+
   $conn = Connect();
 
   $tag = ClearTags($conn, $_POST['tagSearch']);

@@ -24,13 +24,10 @@
     $resultLen = mysqli_num_rows($result);
 
     if ($resultLen > 0) {
-      
-      $row = mysqli_fetch_assoc($result);
-      $lenResultTagId = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM posttag WHERE tagId='$row[tagId]'"));
 
-      if ($lenResultTagId == 0) {
+        $row = mysqli_fetch_assoc($result);
         $conn->query("INSERT INTO posttag (postId, tagId) VALUES ('$postId', '$row[tagId]')");
-      }
+
 
     }
     else {
