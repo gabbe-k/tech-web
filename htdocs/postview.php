@@ -15,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/master.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/my.js"></script>
-    <title>Tags här</title>
+    <title>Tags härhhhhh</title>
 
   </head>
 
@@ -26,24 +26,9 @@
       <div class="info">
 
         <div class="infoContent">
-          <div class="title">
-            <h1>Your current tags</h1>
-          </div>
-          <div class="tagSection">
-            <div id="tagviewer">
-
-                <?php
-                    PrintTags();
-                 ?>
-
-                <div id="addDiv">
-                  <button type="button" name="button" id="addTags"></button>
-                  <form id="addTagForm" action="../sql/sqaddtags.php" method="post">
-                    <input type="text" name="tagSearch" value="Add tags...">
-                  </form>
-                </div>
-            </div>
-          </div>
+          <?php
+              include("view/forms/addtags.php");
+           ?>
         </div>
 
       </div>
